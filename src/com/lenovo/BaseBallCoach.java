@@ -6,18 +6,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
 public class BaseBallCoach implements Coach {
 
     @Autowired
     @Qualifier("randomFortuneService")
     private FortuneService fortuneService;
-
-    @Value("${email}")
-    private String emailAddress;
-    @Value("${team}")
-    private String team;
 
     @Override
     public String getDailyWorkout() {
@@ -28,4 +25,15 @@ public class BaseBallCoach implements Coach {
     public String getDailyFortune() {
         return fortuneService.getFortuneMessage();
     }
+
+    //define init and destroy methods
+    @PostConstruct
+    public void doMyStartupStuff(){
+        System.out.println("\n Inside of BaseBallCoach --> doMyStartupStuff");
+    }
+    @PreDestroy
+    public void doCleanUpStuff(){
+        System.out.println("\n Inside of BaseBallCoach --> dodoCleanUpStuff");
+    }
+
 }

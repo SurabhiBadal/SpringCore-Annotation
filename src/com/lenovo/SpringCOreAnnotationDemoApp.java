@@ -6,7 +6,7 @@ public class SpringCOreAnnotationDemoApp {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Coach theCoach=context.getBean("myCoach",Coach.class);
+        Coach theCoach=context.getBean("baseBallCoach",Coach.class);
 
         System.out.println(theCoach.getDailyWorkout());
 

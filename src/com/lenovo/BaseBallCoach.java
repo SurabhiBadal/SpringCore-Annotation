@@ -2,7 +2,7 @@ package com.lenovo;
 
 import org.springframework.stereotype.Component;
 
-@Component("myCoach")
+@Component
 public class BaseBallCoach implements Coach{
 
     @Override

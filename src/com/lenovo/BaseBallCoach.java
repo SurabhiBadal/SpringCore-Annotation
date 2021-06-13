@@ -3,9 +3,11 @@ package com.lenovo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class BaseBallCoach implements Coach {
 
     @Autowired
@@ -17,7 +19,6 @@ public class BaseBallCoach implements Coach {
     @Value("${team}")
     private String team;
 
-
     @Override
     public String getDailyWorkout() {
         return "Practice BaseBall fro 30 Minutes";
@@ -26,13 +27,5 @@ public class BaseBallCoach implements Coach {
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortuneMessage();
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getTeam() {
-        return team;
     }
 }

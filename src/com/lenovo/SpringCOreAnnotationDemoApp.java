@@ -12,9 +12,6 @@ public class SpringCOreAnnotationDemoApp {
 
         System.out.println(theCoach.getDailyFortune());
 
-        System.out.println(theCoach.getEmailAddress());
-        System.out.println(theCoach.getTeam());
-
         context.close();
     }
 }
